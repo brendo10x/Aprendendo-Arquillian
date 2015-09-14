@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>arquillian</groupId>
+	<artifactId>proj-aprendendo-arquillian</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Desenvolvendo testes com Arquillian</name>
+	<description>Esse pom.xml tem por objetivo 
+	registrar as dependências e configurações para 
+	que possa ser realizado os testes utilizando os 
+	recursos do Java EE</description>
+	<url>http://maven.apache.org</url>
+
+	<developers>
+		<developer>
+			<organization>UFCA - Universidade Federal do Cariri</organization>
+			<name>Brendo Felipe</name>
+			<email>brendo10x@gmail.com</email>
+			<roles>
+				<role>Desenvolvedor</role>
+				<role>Testador</role>
+			</roles>
+		</developer>
+	</developers>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<profiles>
+		<!-- Perfil do Wildfly 8.1.0 do tipo gerenciado -->
+		<profile>
+			<id>jboss</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.wildfly</groupId>
+					<artifactId>wildfly-arquillian-container-managed</artifactId>
+					<version>8.1.0.final</version>
+					<scope>test</scope>
+					<!-- Exclui a chamada desnecessária do Jconsole (não vamos utilizar) -->
+					<exclusions>
+						<exclusion>
+							<groupId>sun.jdk</groupId>
+							<artifactId>jconsole</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Arquillian Jboss -->
+			<dependency>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>1.1.4.Final</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- Arquillian JUnit Container -->
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Java EE 7 API -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- Versão do plugin maven -->
+				<version>3.1</version>
+				<configuration>
+					<!-- Versão do java -->
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
