@@ -4,6 +4,7 @@ Este projeto realiza testes com Arquillian utilizando os recursos do Java EE 7
 Configuração Wildfly remote
 
 No pom.xml acrescente o perfil:
+
  <!-- Arquillian WildFly remote profile -->
         <profile>
             <id>arq-widlfly-remote</id>
