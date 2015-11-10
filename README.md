@@ -32,7 +32,7 @@ Por fim, adicione no arquivo arquillian.xml a seguinte instrução:
         </configuration>
     </container>
 
-Melhorar o container gerenciado:    
+Melhorando o a chamada para o container wildfly gerenciado:    
 <!-- Configuration to be used when the WildFly managed profile is active -->
 	<container qualifier="widlfly-managed" default="true">
 		<configuration>
