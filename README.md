@@ -4,16 +4,16 @@ Este projeto realiza testes com Arquillian utilizando os recursos do Java EE 7
 Configuração Wildfly remote
 
 No pom.xml acrescente o perfil:
-
+ 
  <!-- Arquillian WildFly remote profile -->
-        <profile>
+     <profile>
             <id>arq-widlfly-remote</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-arquillian-container-remote</artifactId>
-                    <version>${version.org.wildfly}</version>
-                    <scope>test</scope>
+               <dependencies>
+                       <dependency>
+                       <groupId>org.wildfly</groupId>
+                       <artifactId>wildfly-arquillian-container-remote</artifactId>
+                       <version>${version.org.wildfly}</version>
+                       <scope>test</scope>
                 </dependency>
             </dependencies>
         </profile>
@@ -23,7 +23,7 @@ Por fim, adicione no arquivo arquillian.xml a seguinte instrução:
  <!-- Sets the protocol which is how Arquillian talks and executes the tests inside the container -->
     <defaultProtocol type="Servlet 3.0" />
 
-    <!-- Configuration to be used when the WidlFly remote profile is active -->
+  <!-- Configuration to be used when the WidlFly remote profile is active -->
     <container qualifier="widlfly-remote">
         <configuration>
             <property name="managementAddress">127.0.0.1</property>
